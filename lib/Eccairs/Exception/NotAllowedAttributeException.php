@@ -9,7 +9,8 @@
 
 namespace Zhb\Eccairs\Exception;
 
-class NotAllowedAttributeException extends \LogicException
+use LogicException;
+class NotAllowedAttributeException extends LogicException
 {
     protected $message = 'The given attribute is not allowed in this context';
 }

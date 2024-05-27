@@ -11,11 +11,14 @@
         }
     ],
     "require": {
-        "php": "^7.0.25|^7.1",
-        "nelexa/zip": "^3.1",
+        "php": "^7.4 || ^8.0",
+        "nelexa/zip": "^4.0",
         "sabre/xml": "^2.1"
     },
     "autoload": {
         "psr-4": { "Zhb\\Eccairs\\": "lib/Eccairs" }
+    },
+    "require-dev": {
+        "rector/rector": "^1.1"
     }
 }

@@ -9,7 +9,8 @@
 
 namespace Zhb\Eccairs\Exception;
 
-class MissingMappingFieldException extends \LogicException
+use LogicException;
+class MissingMappingFieldException extends LogicException
 {
     protected $message = 'The field dosen\'t exists';
 }

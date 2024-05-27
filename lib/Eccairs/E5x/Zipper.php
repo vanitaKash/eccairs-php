@@ -13,7 +13,7 @@ use PhpZip\ZipFile;
 
 class Zipper
 {
-    const OUTPUT_EXT = '.e5x';
+    public const OUTPUT_EXT = '.e5x';
 
     /**
      * @var string

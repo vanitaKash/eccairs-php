@@ -9,6 +9,7 @@
 
 namespace Zhb\Eccairs;
 
+use ReflectionClass;
 use Sabre\Xml\Service;
 use Zhb\Eccairs\E5x\Validator\Validator;
 use Zhb\Eccairs\E5x\Zipper;
@@ -108,7 +109,7 @@ class Eccairs
 
     private function dismount($object)
     {
-        $reflectionClass = new \ReflectionClass(get_class($object));
+        $reflectionClass = new ReflectionClass(get_class($object));
         $array = [];
 
         foreach ($reflectionClass->getProperties() as $property) {

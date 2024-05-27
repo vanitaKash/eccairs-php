@@ -9,6 +9,7 @@
 
 namespace Zhb\Eccairs\Model\Entity\Aircraft\Attribute;
 
+use LogicException;
 use Zhb\Eccairs\Model\AttributeInterface;
 
 class SpeedFirstEvent implements AttributeInterface
@@ -25,7 +26,7 @@ class SpeedFirstEvent implements AttributeInterface
     public function __construct($value = null)
     {
         if (0 > $value || 1999 < $value) {
-            throw new \LogicException('Aircraft speed at first event must be >= 0 and <= 1999');
+            throw new LogicException('Aircraft speed at first event must be >= 0 and <= 1999');
         }
 
         $this->value = $value;

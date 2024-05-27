@@ -9,6 +9,7 @@
 
 namespace Zhb\Eccairs\E5x\Validator;
 
+use DOMDocument;
 use Zhb\Eccairs\Exception\E5xNotValidFormatException;
 
 class Validator
@@ -30,7 +31,7 @@ class Validator
             throw new E5xNotValidFormatException($message, $code);
         });
 
-        $doc = new \DOMDocument();
+        $doc = new DOMDocument();
         $doc->loadXML($xml);
 
         return $doc->schemaValidate(__DIR__.'/xsd/Schema.xsd');

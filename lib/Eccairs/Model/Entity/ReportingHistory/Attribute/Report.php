@@ -13,7 +13,7 @@ use Zhb\Eccairs\Model\AttributeInterface;
 
 class Report implements AttributeInterface
 {
-    const DATA_TYPE = 'http://eccairsportal.jrc.ec.europa.eu/ECCAIRS5_dataTypes.xsd';
+    public const DATA_TYPE = 'http://eccairsportal.jrc.ec.europa.eu/ECCAIRS5_dataTypes.xsd';
 
     private $name = 'Report';
 
