@@ -10,6 +10,7 @@
 namespace Zhb\Eccairs\E5x;
 
 use PhpZip\ZipFile;
+use Zhb\Eccairs\ZipperFile;
 
 class Zipper
 {
@@ -21,7 +22,7 @@ class Zipper
     private $xml;
 
     /**
-     * @var ZipFile
+     * @var ZipperFile
      */
     private $zip;
 
@@ -29,7 +30,7 @@ class Zipper
     {
         $this->xml = $xml;
 
-        $this->zip = new ZipFile();
+        $this->zip = new ZipperFile();
     }
 
     public function addFile($filePath)
@@ -48,7 +49,7 @@ class Zipper
         $this->zip->addFromString($fileName.'.xml', $this->xml);
 
         if (null === $path) {
-            $this->zip->outputAsAttachment($fileName.self::OUTPUT_EXT);
+            $this->zip->outputReturnAsAttachment($fileName.self::OUTPUT_EXT);
         } else {
             $this->zip->saveAsFile($path);
         }
