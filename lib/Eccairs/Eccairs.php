@@ -9,6 +9,7 @@
 
 namespace Zhb\Eccairs;
 
+use ReflectionClass;
 use Sabre\Xml\Service;
 use Zhb\Eccairs\E5x\Validator\Validator;
 use Zhb\Eccairs\E5x\Zipper;
@@ -45,14 +46,14 @@ class Eccairs
         $this->zipper->addFile($filePath);
     }
 
-    public function e5xAsAttachment()
+    public function e5xAsAttachment(): ?string
     {
-        $this->zipper->compress();
+        return $this->zipper->compress() ?? null;
     }
 
-    public function e5xAsFile(string $path)
+    public function e5xAsFile(string $path = null): ?string
     {
-        $this->zipper->compress($path);
+        return $this->zipper->compress($path) ?? null;
     }
 
     /**
@@ -80,6 +81,7 @@ class Eccairs
 
         if ($this->validateAgainstXsd) {
             $validator = new Validator();
+           
             if (!$validator->isValid($xml)) {
                 throw new E5xNotValidFormatException();
             }
@@ -108,7 +110,7 @@ class Eccairs
 
     private function dismount($object)
     {
-        $reflectionClass = new \ReflectionClass(get_class($object));
+        $reflectionClass = new ReflectionClass(get_class($object));
         $array = [];
 
         foreach ($reflectionClass->getProperties() as $property) {
