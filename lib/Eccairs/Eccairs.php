@@ -46,9 +46,9 @@ class Eccairs
         $this->zipper->addFile($filePath);
     }
 
-    public function e5xAsAttachment()
+    public function e5xAsAttachment(): ?string
     {
-        $this->zipper->compress();
+        return $this->zipper->compress() ?? null;
     }
 
     public function e5xAsFile(string $path)
